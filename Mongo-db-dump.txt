@@ -1,0 +1,21 @@
+https://stackoverflow.com/questions/5495540/how-to-use-the-dumped-data-by-mongodump
+
+mongodump
+
+For resolving this, I copied the dump folder,dbdump(which contains bson files) to bin directory of mongodb and executed the below commands in command prompt:
+
+1. cd "path to MongoDB's bin folder"
+(Example: cd C:\Program Files\MongoDB\Server\3.2\bin)
+
+2. mongorestore.exe --dir ./directory name --db database-name
+(Example: mongorestore --dir ./dbdump --db testdb)
+
+All bson files in the dump folder will be imported into your database. You can verfiy this by executing the below commands :
+cd "path to MongoDB's bin folder"
+mongo.exe
+show dbs;
+
+> mongodump (from your preferred path)
+
+> mongorestore.exe --dir ./dump/test-database --db test-database (from the mongo bin path: C:\Program Files\MongoDB\Server\3.4\bin)
+
