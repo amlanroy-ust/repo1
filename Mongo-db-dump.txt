@@ -19,3 +19,6 @@ show dbs;
 
 > mongorestore.exe --dir ./dump/test-database --db test-database (from the mongo bin path: C:\Program Files\MongoDB\Server\3.4\bin)
 
+
+Html to pdf Angular 2
+...///https://plnkr.co/edit/hAd0lPjyWs0pJOL3sAOp?p=preview
