@@ -1,0 +1,182 @@
+set PATH=%PATH%;C:\Users\u58190.USTR\AppData\Roaming\npm;
+
+TFS::
+https://vstsustglobal.visualstudio.com
+
+Need FOR ng build --prod:
+npm i enhanced-resolve@3.3.0
+
+MongoDB Docs
+
+https://www.tutorialspoint.com/mongodb/mongodb_create_collection.htm
+
+
+Pagination:
+
+http://jasonwatmore.com/post/2016/08/23/angular-2-pagination-example-with-logic-like-google
+
+https://github.com/cornflourblue/angular2-pagination-example
+
+Observables Array Operations: 
+
+https://angular-2-training-book.rangle.io/handout/observables/observables_array_operations.html
+
+http://stackabuse.com/avoiding-callback-hell-in-node-js/
+
+https://stackoverflow.com/questions/42342781/why-should-we-use-subscribe-over-map-in-angular2
+
+https://angular.io/guide/component-interaction
+
+
+https://github.com/angular/angular-cli/wiki/build
+
+
+https://angular.io/guide/lifecycle-hooks
+
+ngOnDestroy: Cleanup just before Angular destroys the directive/component. Unsubscribe Observables and detach event handlers to avoid memory leaks.
+Called just before Angular destroys the directive/component.
+
+
+Difference between Constructor and ngOnInit
+
+https://stackoverflow.com/questions/35763730/difference-between-constructor-and-ngoninit
+
+
+
+Difference between Constructor and ngOnInit:::::::::::::::::::::
+
+The Constructor is a default method of the class that is executed when the class is instantiated and ensures proper initialization of fields in the class and its subclasses.
+//called first time before the ngOnInit()
+
+ngOnInit is a life cycle hook called by Angular2 to indicate that Angular is done creating the component.
+We have to import OnInit in order to use like this (actually implementing OnInit is not mandatory but considered good practice):
+//called after the constructor and called  after the first ngOnChanges() 
+
+
+https://stackoverflow.com/questions/35763730/difference-between-constructor-and-ngoninit   ***************
+
+https://stackoverflow.com/questions/35845554/angular-2-component-constructor-vs-oninit/35846307#35846307
+
+Constructor is predefined default method of the typescript class. There is no relation between Angular and constructor. Normally we use constructor to define/initialize some variables, but when we have tasks related to Angular's bindings we move to Angular's ngOnInit life cycle hook. ngOnInit is called just after the constructor call. We can also do the same work in the constructor but its preferable to use ngOnInit to start Angular's binding.
+
+in order to use ngOnInit we have to import this hook from the core library:
+
+import {Component, OnInit} from '@angular/core'
+
+
+https://www.toptal.com/html5/interview-questions
+
+https://stackoverflow.com/questions/32680244/directive-v-s-component-in-angular
+
+https://angular.io/guide/attribute-directives
+
+https://embed.plnkr.co/?show=preview
+
+
+https://angular.io/guide/architecture
+
+
+Change the default port number in systemjs
+
+https://stackoverflow.com/questions/42307747/change-the-default-port-number-in-systemjs
+
+
+Component Interaction
+https://angular.io/guide/component-interaction
+
+Angular 2 Dashboard
+
+https://github.com/creativetimofficial/light-bootstrap-dashboard-angular
+
+https://github.com/akveo/ngx-admin
+http://akveo.com/ngx-admin/#/pages/dashboard
+
+
+https://github.com/gevgeny/angular2-highcharts
+
+
+Getting error while compiling
+
+https://github.com/akveo/ngx-admin/issues/1381
+https://github.com/akveo/ngx-admin/issues/1367#issuecomment-342789113
+
+
+https://github.com/angular/angular-cli#installation
+
+
+ngx-admin:::
+
+https://github.com/akveo/ngx-admin
+
+https://www.npmjs.com/package/http-server
+
+npm install http-server -g
+http-server [path] [options]
+
+https://github.com/valor-software/ng2-charts
+
+https://valor-software.com/ng2-charts/#lineChart
+
+npm install forever -g 
+forever start app.js
+
+forever start -c nodemon app.js  
+
+https://github.com/foreverjs/forever
+
+npm install http-server -g
+
+
+
+https://docs.mongodb.com/manual/tutorial/enable-authentication/
+
+
+Enable Auth
+
+1) Start MongoDB without access control.
+
+  mongod --port 27017 --dbpath /data/db1
+
+2) Connect to the instance.
+
+  mongo --port 27017
+
+3) Create the user administrator.
+
+  Here “admin” is the database name.
+
+  use admin
+  db.createUser(
+   {
+     user: "myUserAdmin",
+     pwd: "abc123",
+     roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+   }
+  )
+
+  Disconnect the mongo shell.
+
+4) Re-start the MongoDB instance with access control.
+
+  mongod --auth --port 27017 --dbpath /data/db1
+
+5) Connect and authenticate as the user administrator.
+
+  mongo --port 27017 -u "myUserAdmin" -p "abc123" --authenticationDatabase "admin"
+
+  To authenticate after connecting
+
+  mongo --port 27017
+
+  use admin
+  db.auth("myUserAdmin", "abc123" )
+
+
+https://docs.mongodb.com/manual/tutorial/enable-authentication/
+
+http://www.randomsnippets.com/2008/03/26/how-to-dynamically-remove-delete-elements-via-javascript/
+
+
+https://stackoverflow.com/questions/19655189/javascript-click-event-listener-on-class
+
+
