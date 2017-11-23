@@ -1,0 +1,74 @@
+
+<div class="image">
+  <!--<img src="https://goo.gl/2oZU2S" alt="First">--> 
+  First Image
+  <button class="remove">X</button>
+</div>
+<div class="image">
+   Second Image
+  <button class="remove1" onclick="registerClickHandler(this)">X</button>
+</div>
+
+<button id='btn' type="submit" onclick="myFunc('btn')">
+  REMOVE THAT!!!
+</button>
+
+<div class="image">
+  addEventListener
+  <button class="remove">X</button>
+</div>
+
+<script>
+
+    function formatDate(userDate) {
+        // format from M/D/YYYY to YYYYMMDD
+        // console.log('userDate', userDate);
+        // var d = new Date(userDate);
+        // var str = d.getFullYear() + '' + (d.getMonth() + 1) + '' +d.getDate();
+        // return str;
+    }
+
+    // console.log('changed format');
+    // console.log(formatDate("12/31/2014"));
+
+    function registerClickHandler (_this) {
+        // Implement the click handler here for button of class 'remove'
+        //console.log('event', _this);
+        //console.log('event', _this.parentNode);
+        _this.parentNode.remove();
+        
+        //var el = document.getElementById( _this.id ); //assuming '_this' is the 'this' reference not the 'id'
+        //el.parentNode.parentNode.removeChild( el.parentNode );
+
+        //var divId = document.getElementById(id);
+        //divId.remove();
+
+    }
+
+    function myFunc(id) {
+        var divId = document.getElementById(id);
+        divId.remove();
+    };
+
+    var classname = document.getElementsByClassName("remove");
+
+    var myFunction = function() {
+        console.log('parentNode ', this.parentNode);
+        this.parentNode.remove();
+        //var attribute = this.getAttribute("data-myattribute");
+        //alert(attribute);
+    };
+
+    for (var i = 0; i < classname.length; i++) {
+        classname[i].addEventListener('click', myFunction, false);
+    }
+
+    //If you have ES6 support you can replace your last line with:
+
+    // Array.from(classname).forEach(function(element) {
+    //   element.addEventListener('click', myFunction);
+    // });
+
+    //Note: Older browsers (like IE6, IE7, IE8) don´t support getElementsByClassName and so they return undefined.
+
+</script>
