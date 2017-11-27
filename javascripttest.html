@@ -1,4 +1,5 @@
 
+
 <div class="image">
   <!--<img src="https://goo.gl/2oZU2S" alt="First">--> 
   First Image
@@ -17,6 +18,10 @@
   addEventListener
   <button class="remove">X</button>
 </div>
+
+<button type="submit" onclick="solutions()">
+  Group Array!!!
+</button>
 
 <script>
 
@@ -70,5 +75,111 @@
     // });
 
     //Note: Older browsers (like IE6, IE7, IE8) don´t support getElementsByClassName and so they return undefined.
+
+    function solutions() {
+        var myArray = [
+            {phoneNo: "9804544333", totalSec: 300},
+            {phoneNo: "9804544333", totalSec: 67},
+            {phoneNo: "9804544222", totalSec: 60},
+            {phoneNo: "9804544222", totalSec: 120},
+            {phoneNo: "9804544111", totalSec: 301},
+            {phoneNo: "9804544555", totalSec: 300},
+            {phoneNo: "9804544555", totalSec: 67}
+        ];
+
+        // var myArray = [
+        //     {phoneNo: "9804544333", totalSec: 300},
+        //     {phoneNo: "9804544333", totalSec: 67},
+        //     {phoneNo: "9804544222", totalSec: 300}
+        // ];
+
+        var groups = groupFunc(myArray);
+        //console.log('groups ', groups);
+        
+        var maxSec = maxSecFunc(groups);
+        //console.log('maxSec: ', maxSec);
+
+        var minNumber = minNumberFunc(groups, maxSec);
+        //console.log('minNumber: ', minNumber);
+
+        var totalCallCost = costCalcualtion(groups, maxSec, minNumber);
+        console.log('totalCallCost: ', totalCallCost);
+    }
+
+    //Max Cost
+    function maxSecFunc(groups) {
+        var maxSec = Math.max.apply(Math,groups.map(function(o){return o.totalSec;}));
+        return maxSec;
+    }
+
+    //Min Number
+    function minNumberFunc(groups, maxSec) {
+        var maxGroupArr = [];
+            groups.forEach(function(element) {
+                if(element.totalSec === maxSec){
+                    maxGroupArr.push(element);
+                }
+            });
+            if(maxGroupArr.length > 1){
+                var minNumber = Math.min.apply(Math,maxGroupArr.map(function(o){return o.phoneNo;}));
+            }
+            else var minNumber = null;
+
+        return minNumber;
+    }
+
+    //Cost Calcualtions
+    function costCalcualtion(groups, maxSec, minNumber) {
+        var totalCallCost = 0;
+        var callCost = 0;
+        var mnt = 0;
+        //console.log('groups: ', groups);
+        groups.forEach(function(element) {
+            //console.log('element.totalSec: ', element.totalSec);
+            if(parseInt(element.phoneNo) === minNumber && element.totalSec === maxSec && maxSec > 300){
+                console.log('1');
+                totalCallCost += 0; 
+                //console.log('totalCallCost: ', totalCallCost);
+            }
+            else if(minNumber === null && element.totalSec === maxSec && maxSec > 300){
+                console.log('2');
+                totalCallCost += 0; 
+                //console.log('totalCallCost: ', totalCallCost);
+            }
+            else if(element.totalSec <= 300){
+                console.log('3');
+                callCost = element.totalSec * 3; 
+                totalCallCost += parseInt(callCost); 
+                //console.log('totalCallCost: ', totalCallCost);
+            }
+            else if(element.totalSec > 300){
+                console.log('4');
+                mnt = element.totalSec / 60; 
+                mnt = parseInt(mnt) + 1;
+                callCost = mnt * 150; 
+                totalCallCost += parseInt(callCost); 
+                //console.log('totalCallCost: ', totalCallCost);
+            }
+        });
+
+        return totalCallCost;
+    }
+
+    //Grouping an Array
+    function groupFunc(dataObject) {
+        var result = dataObject.reduce(function(res, obj) {
+            if (!(obj.phoneNo in res))
+                res.__array.push(res[obj.phoneNo] = obj);
+            else {
+                //res[obj.phoneNo].hits += obj.hits;
+                res[obj.phoneNo].totalSec += obj.totalSec;
+            }
+            return res;
+        }, {__array:[]}).__array.sort(function(a,b) { return b.totalSec - a.totalSec; });
+        return result;
+    };
+
+    
+    
 
 </script>
