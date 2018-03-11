@@ -612,6 +612,8 @@ http://2ality.com/2015/08/getting-started-es6.html
 
 https://www.developer.com/lang/top-10-things-to-know-about-typescript.html
 
+Build tree array from flat array in javascript
+https://stackoverflow.com/questions/18017869/build-tree-array-from-flat-array-in-javascript
 
 
 
